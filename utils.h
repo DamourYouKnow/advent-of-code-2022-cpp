@@ -64,6 +64,3 @@ std::vector<K> vectorMap(const std::vector<T>& vect, std::function<K(T)> func) {
 int vectorSum(const std::vector<int>& vect);
 
 int vectorMax(const std::vector<int>& vect);
-
-std::vector<std::string> split(const std::string& target, const std::string& delimiter);
-
