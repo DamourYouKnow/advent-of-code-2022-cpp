@@ -51,9 +51,19 @@ std::vector<K> vectorCast(const std::vector<T>& vect, std::function<K(T)> caster
 }
 
 
+template  <typename T, typename K>
+std::vector<K> vectorMap(const std::vector<T>& vect, std::function<K(T)> func) {
+	std::vector<K> result;
+	for (T item : vect) {
+		result.push_back(func(item));
+	}
+	return result;
+}
+
+
 int vectorSum(const std::vector<int>& vect);
 
 int vectorMax(const std::vector<int>& vect);
 
-std::vector<std::vector<std::string>> split(const std::string& target, const std::string& delimiter);
+std::vector<std::string> split(const std::string& target, const std::string& delimiter);
 
