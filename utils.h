@@ -18,7 +18,7 @@ public:
 
 
 template <typename T>
-std::vector<std::vector<T>> vectorGroup(std::vector<T>& vect, std::function<bool(T)> predicate) {
+std::vector<std::vector<T>> vectorGroup(const std::vector<T>& vect, std::function<bool(T)> predicate) {
 	std::vector<std::vector<T>> groups;
 	std::vector<T> currGroup;
 
@@ -41,10 +41,16 @@ std::vector<std::vector<T>> vectorGroup(std::vector<T>& vect, std::function<bool
 
 
 template <typename T, typename K>
-std::vector<K> vectorCast(std::vector<T>& vect, std::function<K(T)> caster) {
+std::vector<K> vectorCast(const std::vector<T>& vect, std::function<K(T)> caster) {
 	std::vector<K> result;
 	for (T item : vect) {
 		result.push_back(caster(item));
 	}
 	return result;
 }
+
+
+int vectorSum(const std::vector<int>& vect);
+
+int vectorMax(const std::vector<int>& vect);
+

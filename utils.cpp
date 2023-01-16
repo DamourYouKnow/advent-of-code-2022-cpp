@@ -23,3 +23,24 @@ std::vector<std::string>* FileReader::readLines() {
 
 	return lines;
 }
+
+
+int vectorSum(const std::vector<int>& vect) {
+	int sum = 0;
+	for (int value : vect) {
+		sum += value;
+	}
+	return sum;
+}
+
+
+int vectorMax(const std::vector<int>& vect) {
+	int max = INT_MIN;
+	for (int value : vect) {
+		if (value > max) {
+			max = value;
+		}
+	}
+	return max;
+}
+

@@ -6,5 +6,5 @@
 
 std::string solve(
 	int day, int part,
-	const std::function<std::string(std::vector<std::string>&)>& solver
+	const std::function<std::string(const std::vector<std::string>&)>& solver
 );
