@@ -6,6 +6,7 @@
 #include <fstream>
 #include <functional>
 
+
 class FileReader {
 private:
 	std::ifstream file;
@@ -53,4 +54,6 @@ std::vector<K> vectorCast(const std::vector<T>& vect, std::function<K(T)> caster
 int vectorSum(const std::vector<int>& vect);
 
 int vectorMax(const std::vector<int>& vect);
+
+std::vector<std::vector<std::string>> split(const std::string& target, const std::string& delimiter);
 

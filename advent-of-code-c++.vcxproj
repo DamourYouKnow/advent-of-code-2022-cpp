@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="advent-of-code-c++.cpp" />
     <ClCompile Include="day1.cpp" />
+    <ClCompile Include="day2.cpp" />
     <ClCompile Include="problem.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>

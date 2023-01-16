@@ -2,6 +2,7 @@
 
 #include <algorithm>
 
+
 std::string day_1_part_1(const std::vector<std::string>& input) {
 	auto predicate = [](std::string item) { return item == ""; };
 	auto caster = [](std::string value) { return stoi(value); };

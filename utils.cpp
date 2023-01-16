@@ -44,3 +44,12 @@ int vectorMax(const std::vector<int>& vect) {
 	return max;
 }
 
+
+std::vector<std::vector<std::string>> split(const std::string& target, const std::string& delimiter) {
+	// TODO: The copying here is not necessary.
+	std::vector<char> vect(target.begin(), target.end());
+	auto caster = [](char c) { return std::to_string(c); };
+	std::vector<std::string> vectString = vectorCast<char, std::string>(vect, caster);
+	auto predicate = [delimiter](const std::string& value) { return value == delimiter; };
+	return vectorGroup<std::string>(vectString, predicate);
+}
