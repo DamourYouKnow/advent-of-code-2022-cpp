@@ -74,3 +74,55 @@ std::string day_2_part_1(const std::vector<std::string>& input) {
 
 	return std::to_string(score);
 }
+
+
+std::string day_2_part_2(const std::vector<std::string>& input) {
+	std::map<char, Hand> hands = {
+		{ 'X', Hand::Rock },
+		{ 'Y', Hand::Paper },
+		{ 'Z', Hand::Scissors },
+		{ 'A', Hand::Rock },
+		{ 'B', Hand::Paper },
+		{ 'C', Hand::Scissors }
+	};
+
+	std::map<Hand, Hand> beats = {
+		{ Hand::Rock, Hand::Scissors },
+		{ Hand::Paper, Hand::Rock },
+		{ Hand::Scissors, Hand::Paper }
+	};
+
+	std::map<Hand, Hand> loses = {
+		{ Hand::Rock, Hand::Paper },
+		{ Hand::Paper, Hand::Scissors },
+		{ Hand::Scissors, Hand::Rock }
+	};
+
+	std::map<Hand, int> worth = {
+		{ Hand::Rock, 1 },
+		{ Hand::Paper, 2 },
+		{ Hand::Scissors, 3 }
+	};
+
+	int score = 0;
+	for (std::string row : input) {
+		char opponent = row[0];
+		char action = row[2];
+
+		if (action == 'Z') {
+			// Player must win
+			score += worth[beats[hands[opponent]]] + 6;
+
+		}
+		else if (action == 'X') {
+			// Player must lose
+			score += worth[loses[hands[opponent]]];
+		}
+		else {
+			// Round must end in a draw
+			score += worth[hands[opponent]];
+		}
+	}
+	
+	return std::to_string(score);
+}
