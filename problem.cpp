@@ -10,5 +10,6 @@ std::string solve(
 	std::vector<std::string>* input = reader.readLines();
 	std::string solution = solver(*input);
 	delete input;
+
 	return solution;
 }
