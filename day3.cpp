@@ -34,3 +34,25 @@ std::string day_3_part_1(const std::vector<std::string>& input) {
 
 	return std::to_string(result);
 }
+
+
+std::string day_3_part_2(const std::vector<std::string>& input) {
+	std::map<char, int> priorities = priorityMap();
+	
+	const int chunkSize = 3;
+	std::vector<std::vector<std::string>> groups = vectorChunk(input, chunkSize);
+	int result = 0;
+
+	for (std::vector<std::string> group : groups) {
+		std::unordered_set<char> sacks[chunkSize];
+		for (int i = 0; i < chunkSize; i++) {
+			sacks[i] = std::unordered_set<char>(group[i].begin(), group[i].end());
+		}
+
+		std::unordered_set<char> intersect = intersection<char, chunkSize>(sacks);
+		char item = *(intersect.begin());
+		result += priorities[item];
+	}
+
+	return std::to_string(result);
+}
