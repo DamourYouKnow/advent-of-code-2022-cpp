@@ -3,7 +3,7 @@
 using std::string;
 using std::vector;
 
-FileReader::FileReader(std::string path) {
+FileReader::FileReader(const std::string& path) {
 	this->file = std::ifstream(path);
 }
 

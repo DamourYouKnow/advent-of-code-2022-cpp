@@ -6,8 +6,8 @@ using std::string;
 using std::vector;
 
 string day_1_part_1(const vector<string>& input) {
-	auto predicate = [](string item) { return item == ""; };
-	auto caster = [](string value) { return stoi(value); };
+	auto predicate = [](const string& item) { return item == ""; };
+	auto caster = [](const string& value) { return stoi(value); };
 
 	vector<vector<string>> groups = vectorGroup<string>(input, predicate);
 	vector<int> sums;
@@ -20,8 +20,8 @@ string day_1_part_1(const vector<string>& input) {
 
 
 string day_1_part_2(const vector<string>& input) {
-	auto predicate = [](string item) { return item == ""; };
-	auto caster = [](string value) { return stoi(value); };
+	auto predicate = [](const string& item) { return item == ""; };
+	auto caster = [](const string& value) { return stoi(value); };
 
 	vector<vector<string>> groups = vectorGroup<string>(input, predicate);
 	vector<int> sums;

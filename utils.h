@@ -13,7 +13,7 @@ private:
 	std::ifstream file;
 
 public:
-	FileReader(std::string path);
+	FileReader(const std::string& path);
 	~FileReader();
 	std::vector<std::string>* readLines();
 };
@@ -44,7 +44,7 @@ std::vector<std::vector<T>> vectorChunk(const std::vector<T>& vect, int chunkSiz
 
 
 template <typename T>
-std::vector<std::vector<T>> vectorGroup(const std::vector<T>& vect, std::function<bool(T)> predicate) {
+std::vector<std::vector<T>> vectorGroup(const std::vector<T>& vect, const std::function<bool(const T&)>& predicate) {
 	std::vector<std::vector<T>> groups;
 	std::vector<T> currGroup;
 
@@ -67,7 +67,7 @@ std::vector<std::vector<T>> vectorGroup(const std::vector<T>& vect, std::functio
 
 
 template <typename T, typename K>
-std::vector<K> vectorCast(const std::vector<T>& vect, std::function<K(T)> caster) {
+std::vector<K> vectorCast(const std::vector<T>& vect, const std::function<K(const T&)>& caster) {
 	std::vector<K> result;
 	for (T item : vect) {
 		result.push_back(caster(item));
@@ -77,7 +77,7 @@ std::vector<K> vectorCast(const std::vector<T>& vect, std::function<K(T)> caster
 
 
 template  <typename T, typename K>
-std::vector<K> vectorMap(const std::vector<T>& vect, std::function<K(T)> func) {
+std::vector<K> vectorMap(const std::vector<T>& vect, const std::function<K(const T&)>& func) {
 	std::vector<K> result;
 	for (T item : vect) {
 		result.push_back(func(item));
@@ -87,7 +87,7 @@ std::vector<K> vectorMap(const std::vector<T>& vect, std::function<K(T)> func) {
 
 
 template <typename T>
-std::vector<T> vectorFilter(const std::vector<T>& vect, std::function<bool(T)> predicate) {
+std::vector<T> vectorFilter(const std::vector<T>& vect, const std::function<bool(const T&)>& predicate) {
 	std::vector<T> result;
 	for (T item : vect) {
 		if (predicate(item)) {
@@ -98,7 +98,7 @@ std::vector<T> vectorFilter(const std::vector<T>& vect, std::function<bool(T)> p
 }
 
 template <typename T>
-int vectorCount(const std::vector<T>& vect, std::function<bool(T)> predicate) {
+int vectorCount(const std::vector<T>& vect, const std::function<bool(const T&)>& predicate) {
 	int count = 0;
 	for (T item : vect) {
 		if (predicate(item)) {
@@ -115,7 +115,7 @@ int vectorMax(const std::vector<int>& vect);
 
 
 template <typename T, const int size>
-std::unordered_set<T> intersection(std::unordered_set<T>* sets) {
+std::unordered_set<T> intersection(const std::unordered_set<T>* sets) {
 	std::unordered_set<T> result;
 	if (sets->size() == 0) {
 		return result;

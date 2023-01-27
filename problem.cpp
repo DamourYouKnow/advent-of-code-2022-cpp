@@ -15,5 +15,5 @@ string solve(
 	string solution = solver(*input);
 	delete input;
 
-	return solution;
+	return "Day " + std::to_string(day) + ", part " + std::to_string(part) + ": " + solution;
 }
