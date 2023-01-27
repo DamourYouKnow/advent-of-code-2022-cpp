@@ -12,7 +12,6 @@ FileReader::~FileReader() {
 }
 
 vector<string>* FileReader::readLines() {
-	
 	if (!this->file.is_open()) {
 		throw std::exception("File not open");
 	}
@@ -25,6 +24,27 @@ vector<string>* FileReader::readLines() {
 	}
 
 	return lines;
+}
+
+
+vector<string> split(const string& str, char target) {
+	vector<string> groups;
+	string currGroup = "";
+	for (char c : str) {
+		if (c == target) {
+			groups.push_back(currGroup);
+			currGroup = "";
+		}
+		else {
+			currGroup += c;
+		}
+	}
+
+	if (!currGroup.empty()) {
+		groups.push_back(currGroup);
+	}
+
+	return groups;
 }
 
 

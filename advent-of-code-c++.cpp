@@ -10,10 +10,15 @@ int main()
 {
     std::cout << solve(1, 1, &day_1_part_1) << "\n";
     std::cout << solve(1, 2, &day_1_part_2) << "\n";
+
     std::cout << solve(2, 1, &day_2_part_1) << "\n";
     std::cout << solve(2, 2, &day_2_part_2) << "\n";
+
     std::cout << solve(3, 1, &day_3_part_1) << "\n";
     std::cout << solve(3, 2, &day_3_part_2) << "\n";
+
+    std::cout << solve(4, 1, &day_4_part_1) << "\n";
+    std::cout << solve(4, 2, &day_4_part_2) << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -19,6 +19,9 @@ public:
 };
 
 
+std::vector<std::string> split(const std::string& str, char target);
+
+
 template <typename T> 
 std::vector<std::vector<T>> vectorChunk(const std::vector<T>& vect, int chunkSize) {
 	std::vector<std::vector<T>> chunks;
@@ -80,6 +83,29 @@ std::vector<K> vectorMap(const std::vector<T>& vect, std::function<K(T)> func) {
 		result.push_back(func(item));
 	}
 	return result;
+}
+
+
+template <typename T>
+std::vector<T> vectorFilter(const std::vector<T>& vect, std::function<bool(T)> predicate) {
+	std::vector<T> result;
+	for (T item : vect) {
+		if (predicate(item)) {
+			result.push_back(item);
+		}
+	}
+	return result;
+}
+
+template <typename T>
+int vectorCount(const std::vector<T>& vect, std::function<bool(T)> predicate) {
+	int count = 0;
+	for (T item : vect) {
+		if (predicate(item)) {
+			count += 1;
+		}
+	}
+	return count;
 }
 
 
