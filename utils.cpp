@@ -1,5 +1,8 @@
 #include "utils.h"
 
+using std::string;
+using std::vector;
+
 FileReader::FileReader(std::string path) {
 	this->file = std::ifstream(path);
 }
@@ -8,14 +11,14 @@ FileReader::~FileReader() {
 	this->file.close();
 }
 
-std::vector<std::string>* FileReader::readLines() {
+vector<string>* FileReader::readLines() {
 	
 	if (!this->file.is_open()) {
 		throw std::exception("File not open");
 	}
 
-	std::string currLine;
-	std::vector<std::string>* lines = new std::vector<std::string>();
+	string currLine;
+	vector<string>* lines = new vector<string>();
 
 	while (std::getline(this->file, currLine)) {
 		lines->push_back(currLine);
@@ -25,7 +28,7 @@ std::vector<std::string>* FileReader::readLines() {
 }
 
 
-int vectorSum(const std::vector<int>& vect) {
+int vectorSum(const vector<int>& vect) {
 	int sum = 0;
 	for (int value : vect) {
 		sum += value;
@@ -34,7 +37,7 @@ int vectorSum(const std::vector<int>& vect) {
 }
 
 
-int vectorMax(const std::vector<int>& vect) {
+int vectorMax(const vector<int>& vect) {
 	int max = INT_MIN;
 	for (int value : vect) {
 		if (value > max) {

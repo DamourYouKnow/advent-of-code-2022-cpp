@@ -2,6 +2,9 @@
 
 #include <map>
 
+using std::string;
+using std::vector;
+using std::map;
 
 enum class Hand : int {
 	Rock,
@@ -21,12 +24,12 @@ struct Round {
 };
 
 
-Round parseRound(std::string& round, const std::map<char, Hand>& hands) {
+Round parseRound(string& round, const map<char, Hand>& hands) {
 	return Round(hands.at(round[0]), hands.at(round[2]));
 }
 
 
-int scoreRound(const Round& round, const std::map<Hand, int>& worth, const std::map<Hand, Hand>& beats) {
+int scoreRound(const Round& round, const map<Hand, int>& worth, const map<Hand, Hand>& beats) {
 	int playerWorth = worth.at(round.player);
 
 	if (beats.at(round.player) == round.opponent) {
@@ -44,8 +47,8 @@ int scoreRound(const Round& round, const std::map<Hand, int>& worth, const std::
 }
 
 
-std::string day_2_part_1(const std::vector<std::string>& input) {
-	std::map<char, Hand> hands = {
+string day_2_part_1(const vector<string>& input) {
+	map<char, Hand> hands = {
 		{ 'X', Hand::Rock },
 		{ 'Y', Hand::Paper },
 		{ 'Z', Hand::Scissors },
@@ -54,20 +57,20 @@ std::string day_2_part_1(const std::vector<std::string>& input) {
 		{ 'C', Hand::Scissors }
 	};
 	
-	std::map<Hand, Hand> beats = {
+	map<Hand, Hand> beats = {
 		{ Hand::Rock, Hand::Scissors },
 		{ Hand::Paper, Hand::Rock },
 		{ Hand::Scissors, Hand::Paper }
 	};
 
-	std::map<Hand, int> worth = {
+	map<Hand, int> worth = {
 		{ Hand::Rock, 1 },
 		{ Hand::Paper, 2 },
 		{ Hand::Scissors, 3 }
 	};
 
 	int score = 0;
-	for (std::string row : input) {
+	for (string row : input) {
 		Round round = parseRound(row, hands);
 		score += scoreRound(round, worth, beats);
 	}
@@ -76,8 +79,8 @@ std::string day_2_part_1(const std::vector<std::string>& input) {
 }
 
 
-std::string day_2_part_2(const std::vector<std::string>& input) {
-	std::map<char, Hand> hands = {
+string day_2_part_2(const vector<string>& input) {
+	map<char, Hand> hands = {
 		{ 'X', Hand::Rock },
 		{ 'Y', Hand::Paper },
 		{ 'Z', Hand::Scissors },
@@ -86,26 +89,26 @@ std::string day_2_part_2(const std::vector<std::string>& input) {
 		{ 'C', Hand::Scissors }
 	};
 
-	std::map<Hand, Hand> beats = {
+	map<Hand, Hand> beats = {
 		{ Hand::Rock, Hand::Scissors },
 		{ Hand::Paper, Hand::Rock },
 		{ Hand::Scissors, Hand::Paper }
 	};
 
-	std::map<Hand, Hand> loses = {
+	map<Hand, Hand> loses = {
 		{ Hand::Rock, Hand::Paper },
 		{ Hand::Paper, Hand::Scissors },
 		{ Hand::Scissors, Hand::Rock }
 	};
 
-	std::map<Hand, int> worth = {
+	map<Hand, int> worth = {
 		{ Hand::Rock, 1 },
 		{ Hand::Paper, 2 },
 		{ Hand::Scissors, 3 }
 	};
 
 	int score = 0;
-	for (std::string row : input) {
+	for (string row : input) {
 		char opponent = row[0];
 		char action = row[2];
 

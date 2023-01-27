@@ -2,13 +2,17 @@
 
 #include "utils.h"
 
-std::string solve(
+using std::string;
+using std::vector;
+using std::function;
+
+string solve(
 	int day, int part,
-	const std::function<std::string(const std::vector<std::string>&)>& solver
+	const function<string(const vector<string>&)>& solver
 ) {
 	FileReader reader("./input/day-" + std::to_string(day));
-	std::vector<std::string>* input = reader.readLines();
-	std::string solution = solver(*input);
+	vector<string>* input = reader.readLines();
+	string solution = solver(*input);
 	delete input;
 
 	return solution;
