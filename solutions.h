@@ -13,3 +13,5 @@ std::string day_3_part_2(const std::vector<std::string>& input);
 
 std::string day_4_part_1(const std::vector<std::string>& input);
 std::string day_4_part_2(const std::vector<std::string>& input);
+
+std::string day_5_part_1(const std::vector<std::string>& input);

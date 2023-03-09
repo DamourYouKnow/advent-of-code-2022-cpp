@@ -97,6 +97,17 @@ std::vector<T> vectorFilter(const std::vector<T>& vect, const std::function<bool
 	return result;
 }
 
+
+template <typename T>
+int vectorFindIndex(const std::vector<T>& vect, const std::function<bool(const T&)>& predicate) {
+	for (int i = 0; i < vect.size(); i++) {
+		if (predicate(vect[i])) {
+			return i;
+		}
+	}
+	return -1;
+}
+
 template <typename T>
 int vectorCount(const std::vector<T>& vect, const std::function<bool(const T&)>& predicate) {
 	int count = 0;

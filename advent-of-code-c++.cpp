@@ -20,6 +20,8 @@ int main()
 
     std::cout << solve(4, 1, day_4_part_1) << "\n";
     std::cout << solve(4, 2, day_4_part_2) << "\n";
+
+    std::cout << solve(5, 1, day_5_part_1) << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
