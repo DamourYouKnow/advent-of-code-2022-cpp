@@ -120,6 +120,16 @@ int vectorCount(const std::vector<T>& vect, const std::function<bool(const T&)>&
 }
 
 
+template <typename T>
+void vectorReverse(const std::vector<T>& vect) {
+	for (int i = 0; i < vect.size() / 2; i++) {
+		T temp = vect[i];
+		vect[i] = vect[vect.size() - i - 1];
+		vect[vect.size() - i - 1] = temp;
+	}
+}
+
+
 int vectorSum(const std::vector<int>& vect);
 
 int vectorMax(const std::vector<int>& vect);
